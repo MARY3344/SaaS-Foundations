@@ -1,6 +1,6 @@
 #ignore statdic vendor filess
-src\staticfiles
-src\staticfiles\vendors\
+src/staticfiles/
+src/staticfiles/vendors/
 
 #ignore local static file root
 #or "local cdn"
