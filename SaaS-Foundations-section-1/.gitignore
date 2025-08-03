@@ -1,9 +1,9 @@
 #ignore statdic vendor filess
-src/staticfiles/vendors
+src\staticfiles\vendors
 
 #ignore local static file root
 #or "local cdn"
-local-cdn/
+local-cdn\
 
 .DS_Store
 venv/
