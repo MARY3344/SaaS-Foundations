@@ -7,7 +7,11 @@ from visits.models import PageVisit
 this_dir = pathlib.Path(__file__).resolve().parent
 
 def home_view(request, *args, **kwargs):
+    if request.user.is_authenticated:
+        print(request.user.first_name)
+        print("+======")
     return about_view(request, *args, **kwargs)
+
 
 
 def about_view(request, *args, **kwargs):
