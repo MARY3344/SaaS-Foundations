@@ -55,7 +55,7 @@ ALLOWED_HOSTS = [
 if DEBUG:
     ALLOWED_HOSTS += [
         "127.0.0.1",
-        "localhost"
+        "localhost",
     ]
 
 
@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
     # my-apps
     "commando",
     "visits",
@@ -77,9 +78,12 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     "widget_tweaks",
     "slippers",
+
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -163,7 +167,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_VERIFICATION="mandatory"
-ACCOUNT_EMAIL_SUBJECT_PREFIX="[CFE] "
+ACCOUNT_EMAIL_SUBJECT_PREFIX="[admin] "
 ACCOUNT_EMAIL_REQUIRED=True
 
 AUTHENTICATION_BACKENDS = [
@@ -176,7 +180,16 @@ AUTHENTICATION_BACKENDS = [
     # ...
 ]
 
-SOCIALACCOUNT_PROVIDERS = {}
+ACCOUNT_UNIQUE_EMAIL = True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
+SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+
+        "VERIFIED_EMAIL": True,
+    }
+}
+print(SOCIALACCOUNT_PROVIDERS)
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
